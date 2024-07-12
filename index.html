@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Menu</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="bg-gray-100">
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-7">
+            <!-- Primary Navbar items -->
+            <div class="hidden md:flex items-center space-x-1">
+              <a
+                href="index.html"
+                class="py-4 px-2 text-gray-500 border-b-4 border-blue-500 font-semibold"
+                >Home</a
+              >
+              <a
+                href="/pages/menu.html"
+                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+                >Menu</a
+              >
+              <a
+                href="/pages/about.html"
+                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+                >About</a
+              >
+              <a
+                href="/pages/contact.html"
+                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+                >Contact</a
+              >
+            </div>
+          </div>
+          <!-- Secondary Navbar items -->
+          <div class="hidden md:flex items-center space-x-3">
+            <a
+              href=""
+              class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-gray-200 transition duration-300"
+              >Log In</a
+            >
+            <a
+              href=""
+              class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-400 transition duration-300"
+              >Sign Up</a
+            >
+          </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+              <svg
+                class="w-6 h-6 text-gray-500 hover:text-blue-500"
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- mobile menu -->
+      <div class="hidden mobile-menu">
+        <ul class="">
+          <li class="active">
+            <a
+              href="index.html"
+              class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#menu"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >Menu</a
+            >
+          </li>
+          <li>
+            <a
+              href="#services"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+      <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+      </script>
+    </nav>
+
+    <!-- Header Section -->
+    <header
+      class="bg-cover bg-center"
+      style="background-image: url('/img/header-bg.jpg'); height: 90vh"
+    >
+      <div
+        class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50"
+      >
+        <div class="text-center">
+          <h1 class="text-white text-5xl font-bold">
+            Welcome to Gourmet Bliss
+          </h1>
+          <p class="text-white text-lg mt-4">
+            Experience the best dining with us
+          </p>
+          <a
+            href="#menu"
+            class="mt-6 inline-block bg-blue-500 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-400 transition duration-300"
+            >Explore Menu</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-12 bg-gray-100 my-5">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+          Our Menu
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Category 1: Appetizers -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Appetizers</h3>
+            <ul class="space-y-4">
+              <li class="flex space-x-4">
+                <img
+                  src="/img/bruschetta.jpg"
+                  alt="Bruschetta"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Bruschetta
+                  </h4>
+                  <p class="text-gray-600">
+                    Grilled bread topped with diced tomatoes, garlic, basil, and
+                    olive oil.
+                  </p>
+                </div>
+              </li>
+              <li class="flex space-x-4">
+                <img
+                  src="/img/mushroom.jpg"
+                  alt="Stuffed Mushrooms"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Stuffed Mushrooms
+                  </h4>
+                  <p class="text-gray-600">
+                    Mushrooms filled with cheese, garlic, and herbs, baked to
+                    perfection.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Category 2: Main Courses -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Main Courses</h3>
+            <ul class="space-y-4">
+              <li class="flex space-x-4">
+                <img
+                  src="/img/salmon.jpg"
+                  alt="Grilled Salmon"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Grilled Salmon
+                  </h4>
+                  <p class="text-gray-600">
+                    Fresh salmon fillet grilled to perfection, served with a
+                    side of vegetables.
+                  </p>
+                </div>
+              </li>
+              <li class="flex space-x-4">
+                <img
+                  src="/img/steak.jpg"
+                  alt="Ribeye Steak"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Ribeye Steak
+                  </h4>
+                  <p class="text-gray-600">
+                    Juicy ribeye steak cooked to your liking, served with mashed
+                    potatoes.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Category 3: Desserts -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 hover:">
+              Desserts
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex space-x-4">
+                <img
+                  src="/img/cheesecake.jpg"
+                  alt="Cheesecake"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Cheesecake
+                  </h4>
+                  <p class="text-gray-600">
+                    Creamy cheesecake with a graham cracker crust, topped with
+                    fresh berries.
+                  </p>
+                </div>
+              </li>
+              <li class="flex space-x-4">
+                <img
+                  src="img/lavacake.jpg"
+                  alt="Chocolate Lava Cake"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Chocolate Lava Cake
+                  </h4>
+                  <p class="text-gray-600">
+                    Warm chocolate cake with a gooey center, served with vanilla
+                    ice cream.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 4: Snacks -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Snacks</h3>
+            <ul class="space-y-4">
+              <li class="flex space-x-4">
+                <img
+                  src="/img/burger.jpg"
+                  alt="burger"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Classic Burger
+                  </h4>
+                  <p class="text-gray-600">
+                    Veggie patty topped with chipotle mayo on a whole wheat bun.
+                  </p>
+                </div>
+              </li>
+              <li class="flex space-x-4">
+                <img
+                  src="/img/sandwich.jpg"
+                  alt="sandwich"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Grilled Sandwich
+                  </h4>
+                  <p class="text-gray-600">
+                    Mozzarella cheese, tomatoes, fresh basil on grilled
+                    sourdough bread.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Category 5: Drinks -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Drinks</h3>
+            <ul class="space-y-4">
+              <li class="flex space-x-4">
+                <img
+                  src="/img/milk.jpg"
+                  alt="milk"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">
+                    Chocolate Milk
+                  </h4>
+                  <p class="text-gray-600">
+                    Creamy blend of chocolate ice cream and milk with whipped
+                    cream.
+                  </p>
+                </div>
+              </li>
+              <li class="flex space-x-4">
+                <img
+                  src="/img/lemonade.jpg"
+                  alt="lemonade"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">Lemonade</h4>
+                  <p class="text-gray-600">
+                    Refreshing beverage made with freshly squeezed lemaons
+                    served over ice.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Category 6: Sides -->
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 hover:">Sides</h3>
+            <ul class="space-y-4">
+              <li class="flex space-x-4">
+                <img
+                  src="/img/fries.jpg"
+                  alt="fries"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">Fries</h4>
+                  <p class="text-gray-600">
+                    Crispy French fries seasoned with salt and served with
+                    dressing.
+                  </p>
+                </div>
+              </li>
+              <li class="flex space-x-4">
+                <img
+                  src="img/dressings.jpg"
+                  alt="dressings"
+                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                />
+                <div>
+                  <h4 class="text-xl font-semibold text-gray-700">Dressings</h4>
+                  <p class="text-gray-600">
+                    Enjoy our house-made dressings, crafted to complement every
+                    bite.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section py-20 mt-14">
+      <div class="gallery-overlay"></div>
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">
+          Discover Our Gallery
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Gallery item 1 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="/img/dining.jpg"
+              alt="Gallery Image"
+              class="w-full h-64 object-cover"
+            />
+            <p class="text-gray-600 py-3.5 px-3.5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+              incidunt veritatis rerum temporibus ad, hic minima cumque? Ut,
+              omnis! Quo sed nulla quaerat debitis, delectus, corporis
+              laudantium error ea architecto nobis ipsam natus impedit!
+            </p>
+          </div>
+          <!-- Gallery item 2 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="/img/chef.jpg"
+              alt="Gallery Image"
+              class="w-full h-64 object-cover"
+            />
+            <p class="text-gray-600 py-3.5 px-3.5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+              provident quos nostrum perspiciatis iusto iure odio dolore eos
+              amet quasi blanditiis error itaque pariatur, repellendus quibusdam
+              reiciendis quod assumenda veritatis deserunt.
+            </p>
+          </div>
+          <!-- Gallery item 3 -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="/img/patio.jpg"
+              alt="Gallery Image"
+              class="w-full h-64 object-cover"
+            />
+            <p class="text-gray-600 py-3.5 px-3.5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
+              ea fugiat rerum aperiam debitis necessitatibus non earum
+              consectetur, architecto esse iure dolore amet velit. Maiores
+              dolore ab exercitationem ea ratione laborum sint provident
+              voluptates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Footer Section 1: Menu Links -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Menu</h3>
+            <ul>
+              <li>
+                <a href="#burgers" class="hover:text-gray-300">Burgers</a>
+              </li>
+              <li>
+                <a href="#grilled-sandwiches" class="hover:text-gray-300"
+                  >Grilled Sandwiches</a
+                >
+              </li>
+              <li><a href="#drinks" class="hover:text-gray-300">Drinks</a></li>
+              <li><a href="#sides" class="hover:text-gray-300">Sides</a></li>
+            </ul>
+          </div>
+
+          <!-- Footer Section 2: Address -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Visit Us</h3>
+            <p>123 Restaurant Avenue</p>
+            <p>New City, State 12345</p>
+          </div>
+
+          <!-- Footer Section 3: Restaurant Story and Copyright -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Our Story</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+              convallis libero et lectus convallis, sed laoreet turpis
+              efficitur. Sed sit amet arcu auctor, vehicula ligula nec,
+              consequat justo.
+            </p>
+            <p class="mt-4">&copy; 2024 Gourmet Bliss. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

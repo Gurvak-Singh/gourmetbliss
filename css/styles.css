@@ -1,0 +1,25 @@
+.gallery-section {
+    background-image: url('/img/gallery.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+ .gallery-overlay {
+     position: absolute;
+     top: 300px;
+     background-color: rgba(0, 0, 0, 0.6);
+     /* Adjust opacity as needed */
+ }
+
+ .hero {
+     background-image: url("/img/about-hero.jpg");
+     background-size: cover;
+     background-position: center;
+     height: 400px;
+ }
+
+  .map-container {
+      height: 400px;
+      /* Adjust height as needed */
+  }
