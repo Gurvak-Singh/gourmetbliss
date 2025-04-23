@@ -1,0 +1,230 @@
+/* Animation Styles for GourmetBliss */
+
+/* Base animation classes */
+.fade-in-element {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.fade-in-visible {
+  opacity: 1;
+}
+
+.slide-up-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-up-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scale-element {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scale-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* For staggered animations (like cards) */
+.stagger-container .stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-visible .stagger-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* For hero sections */
+.animate-fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* For subtle hover effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Performance optimizations */
+.bg-loaded {
+  transition: background-image 0.3s ease-out;
+}
+
+/* Image loading transitions */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img.lazy-load {
+  opacity: 0;
+}
+
+img.lazy-loaded {
+  opacity: 1;
+}
+
+/* Improve parallax performance */
+.parallax-hero {
+  transition: background-image 0.5s ease-out;
+  will-change: background-image;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Make hero images faster to load */
+@media (max-width: 768px) {
+  .parallax-hero {
+    background-attachment: scroll !important; /* Better mobile performance */
+  }
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion) {
+  .parallax-hero {
+    background-attachment: scroll !important;
+  }
+  
+  img, .bg-loaded {
+    transition: none !important;
+  }
+}
+
+/* Responsive animations - disable on mobile for better performance */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-element,
+  .slide-up-element,
+  .scale-element,
+  .stagger-container .stagger-item,
+  .animate-fade-in {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Page Transition Effects */
+body {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+body.transition-ready {
+  opacity: 0;
+}
+
+body.page-loaded {
+  opacity: 1;
+}
+
+body.page-transitioning {
+  opacity: 0;
+}
+
+/* Create a smoother initial load */
+.content-wrapper {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.page-loaded .content-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section transitions */
+.transition-section {
+  transition: transform 0.4s ease-out, opacity 0.4s ease;
+}
+
+.transition-section.from-left {
+  transform: translateX(-30px);
+}
+
+.transition-section.from-right {
+  transform: translateX(30px);
+}
+
+.page-loaded .transition-section {
+  transform: translateX(0);
+}
+
+/* Link hover transitions */
+a:not(.no-transition):not(.btn):not([class*="bg-"]):not([role="button"]) {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a:not(.no-transition):not(.btn):not([class*="bg-"]):not([role="button"])::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+a:not(.no-transition):not(.btn):not([class*="bg-"]):not([role="button"]):hover::after {
+  width: 100%;
+}
+
+/* Special transition for menu links */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #3b82f6; /* Blue color */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .content-wrapper,
+  .transition-section,
+  a::after,
+  .nav-link::before {
+    transition: none !important;
+  }
+}

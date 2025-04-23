@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - GourmetBliss</title>
+    <meta name="description" content="Login to your GourmetBliss account to make reservations, order food, and access exclusive offers." />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  </head>
+  <body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <!-- Website Logo -->
+          <div class="flex items-center py-4">
+            <a href="/index.html">
+              <span class="font-bold text-2xl text-blue-500">GourmetBliss</span>
+            </a>
+          </div>
+          
+          <!-- Primary Navbar items - Centered -->
+          <div class="hidden md:flex items-center justify-center flex-1">
+            <div class="flex space-x-6">
+              <a
+                href="../index.html"
+                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+                >Home</a
+              >
+              <a
+                href="/pages/menu.html"
+                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+                >Menu</a
+              >
+              <a
+                href="/pages/about.html"
+                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+                >About</a
+              >
+            </div>
+          </div>
+          
+          <!-- Secondary Navbar items -->
+          <div class="hidden md:flex items-center space-x-3">
+            <a
+              href="/pages/login.html"
+              class="py-2 px-2 font-medium text-gray-500 border-b-2 border-blue-500 rounded hover:bg-gray-200 transition duration-300"
+              >Log In</a
+            >
+            <a
+              href="/pages/signup.html"
+              class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-400 transition duration-300"
+              >Sign Up</a
+            >
+          </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button" aria-label="Toggle menu">
+              <svg
+                class="w-6 h-6 text-gray-500 hover:text-blue-500"
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- mobile menu -->
+      <div class="hidden mobile-menu">
+        <ul class="">
+          <li>
+            <a
+              href="../index.html"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/menu.html"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >Menu</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/about.html"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >About</a
+            >
+          </li>
+          <li class="active">
+            <a
+              href="/pages/login.html"
+              class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold"
+              >Login</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/signup.html"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >Sign Up</a
+            >
+          </li>
+        </ul>
+      </div>
+      <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+      </script>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="flex-grow flex items-center justify-center py-10">
+      <div class="max-w-md mx-auto px-4 w-full">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">
+            Login to Your Account
+          </h2>
+          <form id="login-form" class="space-y-6">
+            <div>
+              <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+              <input type="email" id="email" name="email" required 
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+              <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+              <input type="password" id="password" name="password" required 
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" id="remember" name="remember" 
+                  class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
+                <label for="remember" class="ml-2 block text-sm text-gray-700">
+                  Remember me
+                </label>
+              </div>
+              <a href="#" class="text-sm text-blue-500 hover:underline">Forgot password?</a>
+            </div>
+            <div>
+              <button type="submit" 
+                class="w-full bg-blue-500 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300">
+                Login
+              </button>
+            </div>
+          </form>
+          <div class="mt-6 text-center">
+            <p class="text-gray-600">Don't have an account? 
+              <a href="/pages/signup.html" class="text-blue-500 hover:underline">Sign up</a>
+            </p>
+          </div>
+          <div class="mt-6">
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-white text-gray-500">Or continue with</span>
+              </div>
+            </div>
+            <div class="mt-6 grid grid-cols-3 gap-3">
+              <button class="flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                <i class="fab fa-google"></i>
+              </button>
+              <button class="flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button class="flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                <i class="fab fa-apple"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <h3 class="text-2xl font-bold mb-4">GourmetBliss</h3>
+            <p class="mb-4">
+              A fine dining experience with the perfect blend of taste, service and ambiance.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-blue-400" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-white hover:text-blue-400" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-white hover:text-blue-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-white hover:text-blue-400" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="../index.html" class="hover:text-blue-400">Home</a></li>
+              <li><a href="/pages/menu.html" class="hover:text-blue-400">Menu</a></li>
+              <li><a href="/pages/about.html" class="hover:text-blue-400">About Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+            <p class="mb-4">
+              Subscribe to our newsletter for special deals and updates
+            </p>
+            <form class="flex" role="form" aria-label="Newsletter subscription">
+              <input
+                type="email"
+                placeholder="Your email address"
+                aria-label="Email address for newsletter"
+                class="px-4 py-2 rounded-l-md w-full focus:outline-none text-gray-900"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+          <p>&copy; 2025 GourmetBliss. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('login-form');
+        
+        if (loginForm) {
+          loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // In a real application, this would send the credentials to a server
+            alert(`Login attempted with email: ${email}\nIn a live website, this would authenticate you.`);
+            
+            // Redirect to home page after login
+            window.location.href = '/index.html';
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

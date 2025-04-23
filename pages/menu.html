@@ -3,57 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu - Your Restaurant Name</title>
+    <title>Menu - GourmetBliss</title>
+    <meta name="description" content="Explore our delicious menu at GourmetBliss. From appetizers to desserts, we offer a variety of gourmet dishes prepared with the finest ingredients." />
+    <meta name="keywords" content="restaurant menu, fine dining, gourmet food, appetizers, main courses, desserts" />
+    <meta name="author" content="GourmetBliss" />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+      /* Additional styles for enhanced menu page */
+      .parallax-hero {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 500px;
+      }
+      
+      .menu-card {
+        transition: all 0.3s ease;
+      }
+      
+      .menu-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .section-heading {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+      
+      .section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: #3b82f6;
+      }
+      
+      /* Skip to content accessibility feature */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        padding: 8px;
+        background-color: #3b82f6;
+        color: white;
+        z-index: 100;
+        transition: top 0.3s;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
   </head>
   <body class="bg-gray-100">
     <nav class="bg-white shadow-lg">
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between">
-          <div class="flex space-x-7">
-            <!-- Primary Navbar items -->
-            <div class="hidden md:flex items-center space-x-1">
+          <!-- Website Logo -->
+          <div class="flex items-center py-4">
+            <a href="../index.html">
+              <span class="font-bold text-2xl text-blue-500">GourmetBliss</span>
+            </a>
+          </div>
+          
+          <!-- Primary Navbar items - Centered -->
+          <div class="hidden md:flex items-center justify-center flex-1">
+            <div class="flex space-x-6">
               <a
                 href="../index.html"
-                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300 nav-link"
                 >Home</a
               >
               <a
                 href="/pages/menu.html"
-                class="py-4 px-2 text-gray-500 border-b-4 border-blue-500 font-semibold"
+                class="py-4 px-2 text-gray-500 border-b-4 border-blue-500 font-semibold nav-link"
+                aria-current="page"
                 >Menu</a
               >
               <a
                 href="/pages/about.html"
-                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300 nav-link"
                 >About</a
-              >
-              <a
-                href="/pages/contact.html"
-                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
-                >Contact</a
               >
             </div>
           </div>
+          
           <!-- Secondary Navbar items -->
           <div class="hidden md:flex items-center space-x-3">
             <a
-              href=""
+              href="/pages/login.html"
               class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-gray-200 transition duration-300"
               >Log In</a
             >
             <a
-              href=""
+              href="/pages/signup.html"
               class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-400 transition duration-300"
               >Sign Up</a
             >
           </div>
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center">
-            <button class="outline-none mobile-menu-button">
+            <button class="outline-none mobile-menu-button" aria-label="Toggle menu">
               <svg
                 class="w-6 h-6 text-gray-500 hover:text-blue-500"
                 x-show="!showMenu"
@@ -73,17 +135,17 @@
       <!-- mobile menu -->
       <div class="hidden mobile-menu">
         <ul class="">
-          <li class="active">
+          <li>
             <a
               href="../index.html"
-              class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
               >Home</a
             >
           </li>
-          <li>
+          <li class="active">
             <a
               href="/pages/menu.html"
-              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold"
               >Menu</a
             >
           </li>
@@ -96,9 +158,16 @@
           </li>
           <li>
             <a
-              href="/pages/contact.html"
+              href="/pages/login.html"
               class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
-              >Contact Us</a
+              >Login</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/signup.html"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >Sign Up</a
             >
           </li>
         </ul>
@@ -113,57 +182,103 @@
       </script>
     </nav>
 
+    <!-- Hero Section with Parallax Effect -->
+    <section
+      class="parallax-hero flex items-center justify-center text-center text-white relative py-24"
+      style="background-color: #1a202c; min-height: 400px;"
+      data-bg-image="/img/interior.jpg"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div class="relative z-10 p-8 max-w-4xl mx-auto">
+        <h1 class="text-5xl font-bold mb-4 animate-fade-in">Our Menu</h1>
+        <p class="mt-4 text-xl animate-fade-in" style="animation-delay: 0.3s;">
+          Exquisite dishes crafted with passion, using only the finest ingredients
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4 animate-fade-in" style="animation-delay: 0.6s;">
+          <a href="#appetizers" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 inline-block">
+            Appetizers
+          </a>
+          <a href="#main-courses" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 inline-block">
+            Main Courses
+          </a>
+          <a href="#desserts" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 inline-block">
+            Desserts
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Menu Sections -->
     <!-- Appetizers Section -->
-    <section id="appetizers" class="py-12 bg-gray-100">
+    <section id="appetizers" class="py-16 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-6">Appetizers</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 class="text-3xl font-semibold mb-12 text-center slide-up-element">
+          <span class="inline-block pb-2 relative">
+            Appetizers
+            <span class="absolute bottom-0 left-1/4 right-1/4 h-1 bg-blue-500"></span>
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
           <!-- Appetizer items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/appetizer-1.jpg"
-              alt="Appetizer 1"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/appetizer-1.jpg"
+                alt="Bruschetta"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Bruschetta</h3>
-              <p class="text-sm text-gray-700 mb-4">
+              <p class="text-gray-700 mb-4">
                 Grilled bread topped with diced tomatoes, garlic, basil, and
                 olive oil.
               </p>
-              <p class="text-gray-900 font-bold">$6.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$6.99</p>
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">Popular</span>
+              </div>
             </div>
           </div>
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/appetizer-2.jpg"
-              alt="Appetizer 2"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/appetizer-2.jpg"
+                alt="Stuffed Mushrooms"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Stuffed Mushrooms</h3>
-              <p class="text-sm text-gray-700 mb-4">
+              <p class="text-gray-700 mb-4">
                 Mushrooms stuffed with cheese, garlic, and herbs, baked to
                 perfection.
               </p>
-              <p class="text-gray-900 font-bold">$8.49</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$8.49</p>
+              </div>
             </div>
           </div>
-          <!-- Add more appetizer items as needed -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/appetizer-3.jpg"
-              alt="Appetizer 3"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/appetizer-3.jpg"
+                alt="Chicken Wings"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Chicken Wings</h3>
-              <p class="text-sm text-gray-700 mb-4">
+              <p class="text-gray-700 mb-4">
                 Crispy chicken wings tossed in your choice of buffalo or BBQ
                 sauce.
               </p>
-              <p class="text-gray-900 font-bold">$9.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$9.99</p>
+              </div>
             </div>
           </div>
         </div>
@@ -171,55 +286,79 @@
     </section>
 
     <!-- Main Courses Section -->
-    <section id="main-courses" class="py-12 bg-white">
+    <section id="main-courses" class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-6">Main Courses</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Main Course items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/main-course-1.jpg"
-              alt="Main Course 1"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
+        <h2 class="text-3xl font-semibold mb-12 text-center slide-up-element">
+          <span class="inline-block pb-2 relative">
+            Main Courses
+            <span class="absolute bottom-0 left-1/4 right-1/4 h-1 bg-blue-500"></span>
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
+          <!-- Main Course Items -->
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/main-course-1.jpg"
+                alt="Grilled Steak"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+              <div class="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 m-2 rounded-full text-xs font-bold">Chef's Special</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Grilled Ribeye Steak</h3>
+              <p class="text-gray-700 mb-4">
+                12oz ribeye steak grilled to perfection, served with roasted
+                potatoes and seasonal vegetables.
+              </p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$24.99</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/main-course-2.jpg"
+                alt="Grilled Salmon"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Grilled Salmon</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Fresh salmon fillet grilled to perfection, served with lemon
-                butter sauce.
+              <p class="text-gray-700 mb-4">
+                Fresh Atlantic salmon fillet, grilled and topped with lemon dill
+                sauce. Served with rice pilaf.
               </p>
-              <p class="text-gray-900 font-bold">$18.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$18.99</p>
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Healthy Choice</span>
+              </div>
             </div>
           </div>
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/main-course-2.jpg"
-              alt="Main Course 2"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Steak Frites</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Juicy steak served with crispy French fries and garlic herb
-                butter.
-              </p>
-              <p class="text-gray-900 font-bold">$24.99</p>
+          
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/main-course-3.jpg"
+                alt="Pasta Primavera"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
             </div>
-          </div>
-          <!-- Add more main course items as needed -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/main-course-3.jpg"
-              alt="Main Course 3"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Chicken Alfredo</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Grilled chicken breast served over fettuccine pasta with creamy
-                Alfredo sauce.
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Pasta Primavera</h3>
+              <p class="text-gray-700 mb-4">
+                Fettuccine pasta tossed with fresh seasonal vegetables in a light
+                cream sauce, topped with parmesan.
               </p>
-              <p class="text-gray-900 font-bold">$16.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$15.99</p>
+                <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-semibold">Vegetarian</span>
+              </div>
             </div>
           </div>
         </div>
@@ -227,337 +366,311 @@
     </section>
 
     <!-- Desserts Section -->
-    <section id="desserts" class="py-12 bg-gray-100">
+    <section id="desserts" class="py-16 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-6">Desserts</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Dessert items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/dessert-1.jpg"
-              alt="Dessert 1"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
+        <h2 class="text-3xl font-semibold mb-12 text-center slide-up-element">
+          <span class="inline-block pb-2 relative">
+            Desserts
+            <span class="absolute bottom-0 left-1/4 right-1/4 h-1 bg-blue-500"></span>
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
+          <!-- Dessert Items -->
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/dessert-1.jpg"
+                alt="Cheesecake"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">New York Cheesecake</h3>
+              <p class="text-gray-700 mb-4">
+                Rich and creamy cheesecake with a graham cracker crust, topped
+                with your choice of fruit compote.
+              </p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$7.99</p>
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">Popular</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/dessert-2.jpg"
+                alt="Chocolate Lava Cake"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+              <div class="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 m-2 rounded-full text-xs font-bold">Chef's Special</div>
+            </div>
+            <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Chocolate Lava Cake</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Warm chocolate cake with a gooey molten center, served with
-                vanilla ice cream.
+              <p class="text-gray-700 mb-4">
+                Warm chocolate cake with a molten center, served with vanilla ice
+                cream and fresh berries.
               </p>
-              <p class="text-gray-900 font-bold">$7.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$8.99</p>
+              </div>
             </div>
           </div>
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/dessert-2.jpg"
-              alt="Dessert 2"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
+          
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/dessert-3.jpg"
+                alt="Tiramisu"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">Tiramisu</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Classic Italian dessert made with layers of coffee-soaked
-                ladyfingers and mascarpone cream.
+              <p class="text-gray-700 mb-4">
+                Classic Italian dessert with layers of coffee-soaked ladyfingers
+                and mascarpone cream, dusted with cocoa.
               </p>
-              <p class="text-gray-900 font-bold">$6.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$7.49</p>
+              </div>
             </div>
           </div>
-          <!-- Add more dessert items as needed -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/dessert-3.jpg"
-              alt="Dessert 3"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Cheesecake</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Creamy cheesecake with a graham cracker crust, topped with fresh
-                berries.
-              </p>
-              <p class="text-gray-900 font-bold">$7.49</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Burgers Section -->
-    <section id="burgers" class="py-12 bg-white bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-6">Burgers</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Burger items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/burger-1.jpg"
-              alt="Burger 1"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Classic Cheeseburger</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Beef patty topped with cheddar cheese, lettuce, tomato, onion,
-                pickles, and special sauce on a toasted bun.
-              </p>
-              <p class="text-gray-900 font-bold">$10.99</p>
-            </div>
-          </div>
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/burger-2.jpg"
-              alt="Burger 2"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">BBQ Bacon Burger</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Beef patty topped with crispy bacon, cheddar cheese, BBQ sauce,
-                lettuce, and tomato on a brioche bun.
-              </p>
-              <p class="text-gray-900 font-bold">$12.49</p>
-            </div>
-          </div>
-
-          <!-- Add more burger items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/burger-3.jpg"
-              alt="Burger 3"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Mushroom Swiss Burger</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Beef patty topped with sautéed mushrooms, Swiss cheese, lettuce,
-                tomato, and mayo on a toasted Kaiser roll.
-              </p>
-              <p class="text-gray-900 font-bold">$11.99</p>
-            </div>
-          </div>
-
-          <!-- Continue adding more burger items as needed -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Grilled Sandwiches Section -->
-    <section id="grilled-sandwiches" class="py-12">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-6">Grilled Sandwiches</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Grilled sandwich items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/sandwich-1.jpg"
-              alt="Grilled Sandwich 1"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Grilled Chicken Panini</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Grilled chicken breast with mozzarella cheese, roasted red
-                peppers, and pesto mayo on ciabatta bread.
-              </p>
-              <p class="text-gray-900 font-bold">$9.99</p>
-            </div>
-          </div>
-
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/sandwich-2.jpg"
-              alt="Grilled Sandwich 2"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Caprese Grilled Cheese</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Mozzarella cheese, tomatoes, fresh basil, and balsamic glaze on
-                grilled sourdough bread.
-              </p>
-              <p class="text-gray-900 font-bold">$8.49</p>
-            </div>
-          </div>
-
-          <!-- Add more grilled sandwich items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/sandwich-3.jpg"
-              alt="Grilled Sandwich 3"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Turkey Avocado Panini</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Sliced turkey breast, avocado, Swiss cheese, lettuce, and honey
-                mustard on whole wheat bread.
-              </p>
-              <p class="text-gray-900 font-bold">$10.49</p>
-            </div>
-          </div>
-
-          <!-- Continue adding more grilled sandwich items as needed -->
         </div>
       </div>
     </section>
 
     <!-- Drinks Section -->
-    <section id="drinks" class="py-12 bg-white">
+    <section id="drinks" class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-6">Drinks</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 class="text-3xl font-semibold mb-12 text-center slide-up-element">
+          <span class="inline-block pb-2 relative">
+            Drinks
+            <span class="absolute bottom-0 left-1/4 right-1/4 h-1 bg-blue-500"></span>
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
           <!-- Drink items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/drink-1.jpg"
-              alt="Drink 1"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Chocolate Milkshake</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Creamy blend of chocolate ice cream, milk, topped with whipped
-                cream and chocolate syrup.
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/drink-1.jpg"
+                alt="Coffee"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Specialty Coffee</h3>
+              <p class="text-gray-700 mb-4">
+                Freshly brewed coffee from premium beans, available in various
+                flavors and styles.
               </p>
-              <p class="text-gray-900 font-bold">$4.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$3.99</p>
+              </div>
             </div>
           </div>
-
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/drink-2.jpg"
-              alt="Drink 2"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Iced Matcha Latte</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Cold beverage made with matcha green tea powder, milk, and
-                sweetened with honey or sugar.
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/drink-2.jpg"
+                alt="Fresh Juice"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Fresh Juice</h3>
+              <p class="text-gray-700 mb-4">
+                Freshly squeezed fruit juices, available in orange, apple,
+                watermelon, and mixed varieties.
               </p>
-              <p class="text-gray-900 font-bold">$5.49</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$4.99</p>
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Healthy Choice</span>
+              </div>
             </div>
           </div>
-
-          <!-- Add more drink items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/drink-3.jpg"
-              alt="Drink 3"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Strawberry Lemonade</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Refreshing lemonade with a splash of fresh strawberry puree,
-                served over ice.
+          <!-- Add more drink items as needed -->
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/drink-3.jpg"
+                alt="Wine Selection"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Premium Wine Selection</h3>
+              <p class="text-gray-700 mb-4">
+                Curated selection of red, white, and sparkling wines from around
+                the world.
               </p>
-              <p class="text-gray-900 font-bold">$3.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$8.99 / glass</p>
+              </div>
             </div>
           </div>
-
-          <!-- Continue adding more drink items as needed -->
         </div>
       </div>
     </section>
 
     <!-- Sides Section -->
-    <section id="sides" class="py-12 bg-gray-100">
+    <section id="sides" class="py-16 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-6">Sides</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 class="text-3xl font-semibold mb-12 text-center slide-up-element">
+          <span class="inline-block pb-2 relative">
+            Sides
+            <span class="absolute bottom-0 left-1/4 right-1/4 h-1 bg-blue-500"></span>
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
           <!-- Side items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/side-1.jpg"
-              alt="Side 1"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Fries</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Crispy French fries seasoned with salt and served with ketchup
-                or aioli dipping sauce.
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/side-1.jpg"
+                alt="French Fries"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Truffle Fries</h3>
+              <p class="text-gray-700 mb-4">
+                Crispy French fries tossed with truffle oil, parmesan cheese, and
+                fresh herbs.
               </p>
-              <p class="text-gray-900 font-bold">$3.49</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$6.99</p>
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">Popular</span>
+              </div>
             </div>
           </div>
-
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/side-2.jpg"
-              alt="Side 2"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Onion Rings</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Golden battered onion rings served with spicy dipping sauce.
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/side-2.jpg"
+                alt="Side Salad"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Garden Salad</h3>
+              <p class="text-gray-700 mb-4">
+                Fresh mixed greens with cherry tomatoes, cucumber, red onion, and
+                your choice of dressing.
               </p>
-              <p class="text-gray-900 font-bold">$4.49</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$4.99</p>
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Healthy Choice</span>
+              </div>
             </div>
           </div>
-
-          <!-- Add more side items -->
-          <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src="/img/side-3.jpg"
-              alt="Side 3"
-              class="w-full h-64 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Caesar Salad</h3>
-              <p class="text-sm text-gray-700 mb-4">
-                Fresh romaine lettuce, croutons, Parmesan cheese, and Caesar
-                dressing.
+          <!-- Add more side items as needed -->
+          <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg stagger-item">
+            <div class="relative overflow-hidden">
+              <img
+                src="/img/side-3.jpg"
+                alt="Artisan Bread"
+                class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 lazy"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Artisan Bread Basket</h3>
+              <p class="text-gray-700 mb-4">
+                Assortment of freshly baked breads served with herb-infused olive
+                oil and balsamic vinegar.
               </p>
-              <p class="text-gray-900 font-bold">$5.99</p>
+              <div class="flex justify-between items-center">
+                <p class="text-blue-500 font-bold text-lg">$5.99</p>
+              </div>
             </div>
           </div>
-
-          <!-- Continue adding more side items as needed -->
         </div>
       </div>
     </section>
 
-    <!-- Footer Section (similar to previous example) -->
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-blue-50">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6 slide-up-element">Ready to Experience Our Culinary Delights?</h2>
+        <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto fade-in-element">
+          Join us for an unforgettable dining experience. Make a reservation or order online for pickup or delivery.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 fade-in-element" style="transition-delay: 0.3s;">
+          <a href="#" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 inline-block">
+            <i class="fas fa-phone-alt mr-2"></i> Call for Reservation
+          </a>
+          <a href="#" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 inline-block">
+            <i class="fas fa-shopping-bag mr-2"></i> Order Online
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
     <footer class="bg-gray-900 text-white py-8">
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <!-- Footer content -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Menu</h3>
-            <ul>
-              <li>
-                <a href="#burgers" class="hover:text-gray-300">Burgers</a>
-              </li>
-              <li>
-                <a href="#grilled-sandwiches" class="hover:text-gray-300"
-                  >Grilled Sandwiches</a
-                >
-              </li>
-              <li><a href="#drinks" class="hover:text-gray-300">Drinks</a></li>
-              <li><a href="#sides" class="hover:text-gray-300">Sides</a></li>
+            <h3 class="text-2xl font-bold mb-4">GourmetBliss</h3>
+            <p class="mb-4">
+              A fine dining experience with the perfect blend of taste, service and ambiance.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-blue-400" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-white hover:text-blue-400" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-white hover:text-blue-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-white hover:text-blue-400" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="../index.html" class="hover:text-blue-400">Home</a></li>
+              <li><a href="/pages/menu.html" class="hover:text-blue-400">Menu</a></li>
+              <li><a href="/pages/about.html" class="hover:text-blue-400">About Us</a></li>
             </ul>
           </div>
           <div>
-            <h3 class="text-lg font-semibold mb-4">Visit Us</h3>
-            <p>123 Restaurant Avenue</p>
-            <p>New City, State 12345</p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Our Story</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              convallis libero et lectus convallis, sed laoreet turpis
-              efficitur.
+            <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+            <p class="mb-4">
+              Subscribe to our newsletter for special deals and updates
             </p>
-            <p class="mt-4">
-              &copy; 2024 Your Restaurant. All rights reserved.
-            </p>
+            <form class="flex" role="form" aria-label="Newsletter subscription">
+              <input
+                type="email"
+                placeholder="Your email address"
+                aria-label="Email address for newsletter"
+                class="px-4 py-2 rounded-l-md w-full focus:outline-none text-gray-900"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+          <p>&copy; 2025 GourmetBliss. All rights reserved.</p>
         </div>
       </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="/js/animations.js"></script>
+    <script src="/js/page-transitions.js"></script>
   </body>
 </html>

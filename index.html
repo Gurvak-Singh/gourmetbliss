@@ -3,23 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigation Menu</title>
+    <title>GourmetBliss - Fine Dining Experience</title>
+    <meta
+      name="description"
+      content="Experience the best fine dining at GourmetBliss. Fresh ingredients, expert chefs, and a warm atmosphere await you."
+    />
+    <meta
+      name="keywords"
+      content="restaurant, fine dining, gourmet food, reservations, food menu"
+    />
+    <meta name="author" content="GourmetBliss" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gourmetbliss.com/" />
+    <meta property="og:title" content="GourmetBliss - Fine Dining Experience" />
+    <meta
+      property="og:description"
+      content="Experience the best fine dining at GourmetBliss. Fresh ingredients, expert chefs, and a warm atmosphere await you."
+    />
+    <meta property="og:image" content="/img/header-bg.jpg" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://gourmetbliss.com/" />
+    <meta
+      property="twitter:title"
+      content="GourmetBliss - Fine Dining Experience"
+    />
+    <meta
+      property="twitter:description"
+      content="Experience the best fine dining at GourmetBliss. Fresh ingredients, expert chefs, and a warm atmosphere await you."
+    />
+    <meta property="twitter:image" content="/img/header-bg.jpg" />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Adding styles for parallax effect -->
+    <style>
+      .parallax-hero {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 70vh; /* Further reduced from 80vh to 70vh */
+      }
+    </style>
   </head>
   <body class="bg-gray-100">
     <nav class="bg-white shadow-lg">
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between">
-          <div class="flex space-x-7">
-            <!-- Primary Navbar items -->
-            <div class="hidden md:flex items-center space-x-1">
+          <!-- Website Logo -->
+          <div class="flex items-center py-4">
+            <span class="font-bold text-2xl text-blue-500">GourmetBliss</span>
+          </div>
+
+          <!-- Primary Navbar items - Centered -->
+          <div class="hidden md:flex items-center justify-center flex-1">
+            <div class="flex space-x-6">
               <a
-                href="index.html"
+                href="#"
                 class="py-4 px-2 text-gray-500 border-b-4 border-blue-500 font-semibold"
+                aria-current="page"
                 >Home</a
               >
               <a
@@ -32,29 +84,28 @@
                 class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
                 >About</a
               >
-              <a
-                href="/pages/contact.html"
-                class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
-                >Contact</a
-              >
             </div>
           </div>
+
           <!-- Secondary Navbar items -->
           <div class="hidden md:flex items-center space-x-3">
             <a
-              href=""
+              href="/pages/login.html"
               class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-gray-200 transition duration-300"
               >Log In</a
             >
             <a
-              href=""
+              href="/pages/signup.html"
               class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-400 transition duration-300"
               >Sign Up</a
             >
           </div>
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center">
-            <button class="outline-none mobile-menu-button">
+            <button
+              class="outline-none mobile-menu-button"
+              aria-label="Toggle menu"
+            >
               <svg
                 class="w-6 h-6 text-gray-500 hover:text-blue-500"
                 x-show="!showMenu"
@@ -76,7 +127,7 @@
         <ul class="">
           <li class="active">
             <a
-              href="index.html"
+              href="#"
               class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold"
               >Home</a
             >
@@ -97,9 +148,16 @@
           </li>
           <li>
             <a
-              href="/pages/contact.html"
+              href="/pages/login.html"
               class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
-              >Contact Us</a
+              >Login</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/signup.html"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              >Sign Up</a
             >
           </li>
         </ul>
@@ -114,46 +172,58 @@
       </script>
     </nav>
 
-    <!-- Header Section -->
-    <header
-      class="bg-cover bg-center"
-      style="background-image: url('/img/header-bg.jpg'); height: 90vh"
+    <!-- Hero Section with enhanced parallax and animations -->
+    <section
+      id="main-content"
+      class="parallax-hero flex items-center justify-center text-center text-white relative"
+      style="background-color: #1a202c;"
+      data-bg-image="/img/header-bg.jpg"
     >
-      <div
-        class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50"
-      >
-        <div class="text-center">
-          <h1 class="text-white text-5xl font-bold">
-            Welcome to Gourmet Bliss
-          </h1>
-          <p class="text-white text-lg mt-4">
-            Experience the best dining with us
-          </p>
-          <a
-            href="#menu"
-            class="mt-6 inline-block bg-blue-500 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-400 transition duration-300"
-            >Explore Menu</a
-          >
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div class="relative z-10 p-8 max-w-4xl mx-auto">
+        <h1 class="text-5xl font-bold mb-6 animate-fade-in">
+          Welcome to GourmetBliss
+        </h1>
+        <p class="mt-4 text-xl animate-fade-in" style="animation-delay: 0.3s">
+          Experience the perfect blend of taste, service, and ambiance
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mt-8 animate-fade-in" style="animation-delay: 0.6s">
+          <a href="#reservation-section" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+            Reserve a Table
+          </a>
+          <a href="#order-online-section" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+            Order Online
+          </a>
+          <a href="#catering-section" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+            Book Banquet Hall
+          </a>
         </div>
       </div>
-    </header>
+    </section>
 
     <!-- Menu Section -->
     <section id="menu" class="py-12 bg-gray-100 my-5">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+        <h2
+          class="text-3xl font-bold text-center text-gray-800 mb-8 slide-up-element"
+        >
           Our Menu
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container"
+        >
           <!-- Category 1: Appetizers -->
-          <div class="bg-white rounded-lg shadow-lg p-6">
+          <div
+            class="block bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:shadow-xl hover:scale-105 stagger-item"
+          >
             <h3 class="text-2xl font-bold text-gray-800 mb-4">Appetizers</h3>
             <ul class="space-y-4">
               <li class="flex space-x-4">
                 <img
                   src="/img/bruschetta.jpg"
                   alt="Bruschetta"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                  class="w-24 h-24 object-cover rounded"
+                  loading="lazy"
                 />
                 <div>
                   <h4 class="text-xl font-semibold text-gray-700">
@@ -169,7 +239,8 @@
                 <img
                   src="/img/mushroom.jpg"
                   alt="Stuffed Mushrooms"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                  class="w-24 h-24 object-cover rounded"
+                  loading="lazy"
                 />
                 <div>
                   <h4 class="text-xl font-semibold text-gray-700">
@@ -184,14 +255,17 @@
             </ul>
           </div>
           <!-- Category 2: Main Courses -->
-          <div class="bg-white rounded-lg shadow-lg p-6">
+          <div
+            class="block bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:shadow-xl hover:scale-105 stagger-item"
+          >
             <h3 class="text-2xl font-bold text-gray-800 mb-4">Main Courses</h3>
             <ul class="space-y-4">
               <li class="flex space-x-4">
                 <img
                   src="/img/salmon.jpg"
                   alt="Grilled Salmon"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                  class="w-24 h-24 object-cover rounded"
+                  loading="lazy"
                 />
                 <div>
                   <h4 class="text-xl font-semibold text-gray-700">
@@ -199,231 +273,712 @@
                   </h4>
                   <p class="text-gray-600">
                     Fresh salmon fillet grilled to perfection, served with a
-                    side of vegetables.
+                    lemon butter sauce and seasonal vegetables.
                   </p>
                 </div>
               </li>
               <li class="flex space-x-4">
                 <img
                   src="/img/steak.jpg"
-                  alt="Ribeye Steak"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                  alt="Beef Tenderloin"
+                  class="w-24 h-24 object-cover rounded"
+                  loading="lazy"
                 />
                 <div>
                   <h4 class="text-xl font-semibold text-gray-700">
-                    Ribeye Steak
+                    Beef Tenderloin
                   </h4>
                   <p class="text-gray-600">
-                    Juicy ribeye steak cooked to your liking, served with mashed
-                    potatoes.
+                    Perfectly cooked beef tenderloin with red wine reduction and
+                    roasted potatoes.
                   </p>
                 </div>
               </li>
             </ul>
           </div>
           <!-- Category 3: Desserts -->
-          <div class="bg-white rounded-lg shadow-lg p-6">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4 hover:">
-              Desserts
-            </h3>
+          <div
+            class="block bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:shadow-xl hover:scale-105 stagger-item"
+          >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Desserts</h3>
             <ul class="space-y-4">
               <li class="flex space-x-4">
                 <img
                   src="/img/cheesecake.jpg"
                   alt="Cheesecake"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                  class="w-24 h-24 object-cover rounded"
+                  loading="lazy"
                 />
                 <div>
                   <h4 class="text-xl font-semibold text-gray-700">
                     Cheesecake
                   </h4>
                   <p class="text-gray-600">
-                    Creamy cheesecake with a graham cracker crust, topped with
-                    fresh berries.
+                    Creamy cheesecake with a buttery graham cracker crust,
+                    topped with fresh berries.
                   </p>
                 </div>
               </li>
               <li class="flex space-x-4">
                 <img
-                  src="img/lavacake.jpg"
+                  src="/img/dessert-1.jpg"
                   alt="Chocolate Lava Cake"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
+                  class="w-24 h-24 object-cover rounded"
+                  loading="lazy"
                 />
                 <div>
                   <h4 class="text-xl font-semibold text-gray-700">
                     Chocolate Lava Cake
                   </h4>
                   <p class="text-gray-600">
-                    Warm chocolate cake with a gooey center, served with vanilla
-                    ice cream.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Category 4: Snacks -->
-          <div class="bg-white rounded-lg shadow-lg p-6">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Snacks</h3>
-            <ul class="space-y-4">
-              <li class="flex space-x-4">
-                <img
-                  src="/img/burger.jpg"
-                  alt="burger"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
-                />
-                <div>
-                  <h4 class="text-xl font-semibold text-gray-700">
-                    Classic Burger
-                  </h4>
-                  <p class="text-gray-600">
-                    Veggie patty topped with chipotle mayo on a whole wheat bun.
-                  </p>
-                </div>
-              </li>
-              <li class="flex space-x-4">
-                <img
-                  src="/img/sandwich.jpg"
-                  alt="sandwich"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
-                />
-                <div>
-                  <h4 class="text-xl font-semibold text-gray-700">
-                    Grilled Sandwich
-                  </h4>
-                  <p class="text-gray-600">
-                    Mozzarella cheese, tomatoes, fresh basil on grilled
-                    sourdough bread.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <!-- Category 5: Drinks -->
-          <div class="bg-white rounded-lg shadow-lg p-6">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Drinks</h3>
-            <ul class="space-y-4">
-              <li class="flex space-x-4">
-                <img
-                  src="/img/milk.jpg"
-                  alt="milk"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
-                />
-                <div>
-                  <h4 class="text-xl font-semibold text-gray-700">
-                    Chocolate Milk
-                  </h4>
-                  <p class="text-gray-600">
-                    Creamy blend of chocolate ice cream and milk with whipped
-                    cream.
-                  </p>
-                </div>
-              </li>
-              <li class="flex space-x-4">
-                <img
-                  src="/img/lemonade.jpg"
-                  alt="lemonade"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
-                />
-                <div>
-                  <h4 class="text-xl font-semibold text-gray-700">Lemonade</h4>
-                  <p class="text-gray-600">
-                    Refreshing beverage made with freshly squeezed lemaons
-                    served over ice.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <!-- Category 6: Sides -->
-          <div class="bg-white rounded-lg shadow-lg p-6">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4 hover:">Sides</h3>
-            <ul class="space-y-4">
-              <li class="flex space-x-4">
-                <img
-                  src="/img/fries.jpg"
-                  alt="fries"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
-                />
-                <div>
-                  <h4 class="text-xl font-semibold text-gray-700">Fries</h4>
-                  <p class="text-gray-600">
-                    Crispy French fries seasoned with salt and served with
-                    dressing.
-                  </p>
-                </div>
-              </li>
-              <li class="flex space-x-4">
-                <img
-                  src="img/dressings.jpg"
-                  alt="dressings"
-                  class="w-24 h-24 object-cover rounded cursor-pointer"
-                />
-                <div>
-                  <h4 class="text-xl font-semibold text-gray-700">Dressings</h4>
-                  <p class="text-gray-600">
-                    Enjoy our house-made dressings, crafted to complement every
-                    bite.
+                    Warm chocolate cake with a molten chocolate center, served
+                    with vanilla ice cream.
                   </p>
                 </div>
               </li>
             </ul>
           </div>
         </div>
+        <div class="text-center mt-12 fade-in-element">
+          <a
+            href="/pages/menu.html"
+            class="inline-block bg-blue-500 text-white py-3 px-8 rounded-lg shadow-lg hover:bg-blue-400 transition duration-300"
+            >View Full Menu</a
+          >
+        </div>
       </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery-section py-20 mt-14">
-      <div class="gallery-overlay"></div>
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 text-center slide-up-element">
           Discover Our Gallery
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Gallery item 1 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-container"
+        >
+          <!-- Gallery Image 1 -->
+          <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden hover-lift stagger-item">
             <img
-              src="/img/dining.jpg"
-              alt="Gallery Image"
-              class="w-full h-64 object-cover"
+              src="/img/gallery1.jpg"
+              alt="Restaurant Interior"
+              class="w-full h-64 object-cover transition duration-300"
+              loading="lazy"
             />
-            <p class="text-gray-600 py-3.5 px-3.5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-              incidunt veritatis rerum temporibus ad, hic minima cumque? Ut,
-              omnis! Quo sed nulla quaerat debitis, delectus, corporis
-              laudantium error ea architecto nobis ipsam natus impedit!
-            </p>
+            <div class="p-5">
+              <h3 class="font-bold text-xl mb-2">Elegant Atmosphere</h3>
+              <p class="text-gray-700">
+                Experience the warm and inviting ambiance of our restaurant.
+              </p>
+            </div>
           </div>
-          <!-- Gallery item 2 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <!-- Gallery Image 2 -->
+          <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden hover-lift stagger-item">
             <img
-              src="/img/chef.jpg"
-              alt="Gallery Image"
-              class="w-full h-64 object-cover"
+              src="/img/gallery2.jpg"
+              alt="Signature Dish"
+              class="w-full h-64 object-cover transition duration-300"
+              loading="lazy"
             />
-            <p class="text-gray-600 py-3.5 px-3.5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-              provident quos nostrum perspiciatis iusto iure odio dolore eos
-              amet quasi blanditiis error itaque pariatur, repellendus quibusdam
-              reiciendis quod assumenda veritatis deserunt.
-            </p>
+            <div class="p-5">
+              <h3 class="font-bold text-xl mb-2">Signature Dishes</h3>
+              <p class="text-gray-700">
+                Discover our chef's unique creations, prepared with passion.
+              </p>
+            </div>
           </div>
-          <!-- Gallery item 3 -->
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <!-- Gallery Image 3 -->
+          <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden hover-lift stagger-item">
             <img
-              src="/img/patio.jpg"
-              alt="Gallery Image"
-              class="w-full h-64 object-cover"
+              src="/img/gallery3.jpg"
+              alt="Chef at Work"
+              class="w-full h-64 object-cover transition duration-300"
+              loading="lazy"
             />
-            <p class="text-gray-600 py-3.5 px-3.5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
-              ea fugiat rerum aperiam debitis necessitatibus non earum
-              consectetur, architecto esse iure dolore amet velit. Maiores
-              dolore ab exercitationem ea ratione laborum sint provident
-              voluptates.
-            </p>
+            <div class="p-5">
+              <h3 class="font-bold text-xl mb-2">Culinary Craftsmanship</h3>
+              <p class="text-gray-700">
+                Watch our expert chefs create culinary masterpieces.
+              </p>
+            </div>
           </div>
+        </div>
+        <div class="text-center mt-12 fade-in-element">
+          <a
+            href="#"
+            class="inline-block bg-blue-500 text-white py-3 px-8 rounded-lg shadow-lg hover:bg-blue-400 transition duration-300"
+            >View More Photos</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation-section" class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 text-center slide-up-element">
+          Reserve Your Table
+        </h2>
+        <div class="max-w-4xl mx-auto fade-in-element">
+          <form id="reservation-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4 md:col-span-1">
+              <div>
+                <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  placeholder="johndoe@example.com"
+                  required
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  placeholder="(123) 456-7890"
+                  required
+                />
+              </div>
+            </div>
+            <div class="space-y-4 md:col-span-1">
+              <div>
+                <label for="date" class="block text-gray-700 mb-2">Date</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+              <div>
+                <label for="time" class="block text-gray-700 mb-2">Time</label>
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+              <div>
+                <label for="guests" class="block text-gray-700 mb-2">Number of Guests</label>
+                <select
+                  id="guests"
+                  name="guests"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  required
+                >
+                  <option value="">Select</option>
+                  <option value="1">1 Person</option>
+                  <option value="2">2 People</option>
+                  <option value="3">3 People</option>
+                  <option value="4">4 People</option>
+                  <option value="5">5 People</option>
+                  <option value="6">6 People</option>
+                  <option value="7+">7+ People</option>
+                </select>
+              </div>
+            </div>
+            <div class="md:col-span-2">
+              <label for="special-requests" class="block text-gray-700 mb-2">Special Requests</label>
+              <textarea
+                id="special-requests"
+                name="special-requests"
+                rows="4"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                placeholder="Any special dietary requirements or requests..."
+              ></textarea>
+            </div>
+            <div class="md:col-span-2 text-center">
+              <button
+                type="submit"
+                class="px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-400 transition duration-300"
+              >
+                Book My Table
+              </button>
+            </div>
+          </form>
+          <div class="mt-8 text-center text-gray-600">
+            <p>For large parties (8+) or special events, please call us directly at <strong>(123) 456-7890</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Online Section -->
+    <section id="order-online-section" class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 text-center slide-up-element">
+          Order Online
+        </h2>
+        <div class="max-w-5xl mx-auto">
+          <!-- Delivery/Takeout toggle -->
+          <div class="flex justify-center gap-4 mb-10 fade-in-element">
+            <button
+              class="bg-blue-500 text-white rounded-lg py-2 px-6 hover:bg-blue-600 transition duration-300 flex items-center"
+            >
+              <i class="fas fa-bicycle mr-2"></i>Delivery
+            </button>
+            <button
+              class="bg-gray-200 text-gray-800 rounded-lg py-2 px-6 hover:bg-gray-300 transition duration-300 flex items-center"
+            >
+              <i class="fas fa-shopping-bag mr-2"></i>Takeout
+            </button>
+          </div>
+
+          <!-- Category Filter -->
+          <div class="flex flex-wrap justify-center gap-2 mb-8 fade-in-element">
+            <button
+              class="bg-blue-500 text-white rounded-full py-2 px-6 hover:bg-blue-600 transition duration-300"
+            >
+              All
+            </button>
+            <button
+              class="bg-gray-200 text-gray-800 rounded-full py-2 px-6 hover:bg-gray-300 transition duration-300"
+            >
+              Appetizers
+            </button>
+            <button
+              class="bg-gray-200 text-gray-800 rounded-full py-2 px-6 hover:bg-gray-300 transition duration-300"
+            >
+              Main Courses
+            </button>
+            <button
+              class="bg-gray-200 text-gray-800 rounded-full py-2 px-6 hover:bg-gray-300 transition duration-300"
+            >
+              Desserts
+            </button>
+            <button
+              class="bg-gray-200 text-gray-800 rounded-full py-2 px-6 hover:bg-gray-300 transition duration-300"
+            >
+              Drinks
+            </button>
+          </div>
+
+          <!-- Menu Items Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-container">
+            <!-- Menu Item 1 -->
+            <div class="border rounded-lg overflow-hidden bg-white shadow-md stagger-item hover-lift">
+              <img
+                src="/img/appetizer-1.jpg"
+                alt="Bruschetta"
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              <div class="p-4">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="text-lg font-semibold">Bruschetta</h3>
+                    <p class="text-gray-600 text-sm mb-2">
+                      Grilled bread with fresh tomatoes, garlic, and basil.
+                    </p>
+                  </div>
+                  <span class="font-bold text-green-600">$8.99</span>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <button
+                      class="bg-gray-200 text-gray-700 rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-300"
+                      aria-label="Decrease quantity"
+                    >
+                      -
+                    </button>
+                    <span class="mx-2">1</span>
+                    <button
+                      class="bg-gray-200 text-gray-700 rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-300"
+                      aria-label="Increase quantity"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button
+                    class="bg-blue-500 text-white py-1 px-3 rounded-lg hover:bg-blue-600 transition duration-300"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Menu Item 2 -->
+            <div class="border rounded-lg overflow-hidden bg-white shadow-md stagger-item hover-lift">
+              <img
+                src="/img/main-course-1.jpg"
+                alt="Grilled Salmon"
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              <div class="p-4">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="text-lg font-semibold">Grilled Salmon</h3>
+                    <p class="text-gray-600 text-sm mb-2">
+                      Fresh salmon with lemon butter and seasonal vegetables.
+                    </p>
+                  </div>
+                  <span class="font-bold text-green-600">$22.99</span>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <button
+                      class="bg-gray-200 text-gray-700 rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-300"
+                      aria-label="Decrease quantity"
+                    >
+                      -
+                    </button>
+                    <span class="mx-2">1</span>
+                    <button
+                      class="bg-gray-200 text-gray-700 rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-300"
+                      aria-label="Increase quantity"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button
+                    class="bg-blue-500 text-white py-1 px-3 rounded-lg hover:bg-blue-600 transition duration-300"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Menu Item 3 -->
+            <div class="border rounded-lg overflow-hidden bg-white shadow-md stagger-item hover-lift">
+              <img
+                src="/img/dessert-1.jpg"
+                alt="Chocolate Lava Cake"
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              <div class="p-4">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="text-lg font-semibold">Chocolate Lava Cake</h3>
+                    <p class="text-gray-600 text-sm mb-2">
+                      Warm chocolate cake with a molten center and vanilla ice cream.
+                    </p>
+                  </div>
+                  <span class="font-bold text-green-600">$9.99</span>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                  <div class="flex items-center">
+                    <button
+                      class="bg-gray-200 text-gray-700 rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-300"
+                      aria-label="Decrease quantity"
+                    >
+                      -
+                    </button>
+                    <span class="mx-2">1</span>
+                    <button
+                      class="bg-gray-200 text-gray-700 rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-300"
+                      aria-label="Increase quantity"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button
+                    class="bg-blue-500 text-white py-1 px-3 rounded-lg hover:bg-blue-600 transition duration-300"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart Button -->
+          <div class="text-center mt-10 fade-in-element">
+            <button
+              class="bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-500 transition duration-300 inline-flex items-center"
+            >
+              <i class="fas fa-shopping-cart mr-2"></i> View Cart (0 items)
+            </button>
+            <p class="mt-4 text-sm text-gray-600">Free delivery on orders over $25 within 5 miles</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Restaurant Information Section -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 text-center slide-up-element">
+          Restaurant Information
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Left Column: Map and FAQ -->
+          <div class="fade-in-element space-y-4">
+            <!-- Map Container -->
+            <div class="map-container h-80 rounded-lg overflow-hidden shadow-lg">
+              <!-- Google Maps iframe embed -->
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901291102!2d-74.00069084459631!3d40.71277627933105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjAiTiA3NMKwMDAnMDIuNiJX!5e0!3m2!1sen!2sus!4v1619712736020!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                title="GourmetBliss Restaurant Location"
+                aria-label="Map showing the location of GourmetBliss Restaurant"
+              ></iframe>
+            </div>
+            
+            <!-- FAQ Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover-lift">
+              <div class="flex items-center mb-3">
+                <i class="fas fa-question-circle text-blue-500 text-2xl mr-3"></i>
+                <h3 class="text-xl font-semibold">Frequently Asked Questions</h3>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold text-gray-800">Do you accommodate special dietary requirements?</h4>
+                  <p class="text-gray-600 mt-1">
+                    Yes, we can accommodate most dietary requirements including vegetarian, vegan, gluten-free, and allergies. Please inform us when making your reservation.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Is parking available?</h4>
+                  <p class="text-gray-600 mt-1">
+                    Yes, we offer free parking for all our customers in the lot behind the restaurant.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Combined Location and Hours Card -->
+          <div class="fade-in-element" style="transition-delay: 0.2s">
+            <div class="bg-white p-6 rounded-lg shadow-md hover-lift h-full">
+              <!-- Location Section -->
+              <div class="mb-6 pb-6 border-b border-gray-100">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-map-marker-alt text-blue-500 text-2xl mr-3"></i>
+                  <h3 class="text-xl font-semibold">Our Location</h3>
+                </div>
+                <address class="not-italic text-gray-600 pl-10">
+                  123 Gourmet Street<br>
+                  Foodville, FV 98765<br>
+                  United States
+                </address>
+                <p class="text-sm text-gray-500 italic mt-2 pl-10">
+                  Centrally located in the heart of downtown Foodville
+                </p>
+              </div>
+              
+              <!-- Hours Section -->
+              <div>
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-clock text-blue-500 text-2xl mr-3"></i>
+                  <h3 class="text-xl font-semibold">Opening Hours</h3>
+                </div>
+                <table class="w-full text-gray-600">
+                  <tbody>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 font-medium">Monday</td>
+                      <td class="py-2 text-right">11:00 AM - 10:00 PM</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 font-medium">Tuesday</td>
+                      <td class="py-2 text-right">11:00 AM - 10:00 PM</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 font-medium">Wednesday</td>
+                      <td class="py-2 text-right">11:00 AM - 10:00 PM</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 font-medium">Thursday</td>
+                      <td class="py-2 text-right">11:00 AM - 10:00 PM</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 font-medium">Friday</td>
+                      <td class="py-2 text-right">11:00 AM - 11:00 PM</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 font-medium">Saturday</td>
+                      <td class="py-2 text-right">10:00 AM - 11:00 PM</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 font-medium">Sunday</td>
+                      <td class="py-2 text-right">10:00 AM - 9:00 PM</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catering and Banquet Hall Section -->
+    <section id="catering-section" class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 text-center slide-up-element">
+          Catering & Private Events
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <!-- Left Column: Banquet Hall Image -->
+          <div class="fade-in-element">
+            <img 
+              src="/img/banquet-hall.jpg" 
+              alt="Our elegant banquet hall set up for a private event" 
+              class="rounded-lg shadow-lg w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+          
+          <!-- Right Column: Catering and Event Info -->
+          <div class="fade-in-element" style="transition-delay: 0.2s">
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-2xl font-semibold mb-3">Host Your Special Events</h3>
+                <p class="text-gray-700 mb-3">
+                  Our elegant banquet hall is perfect for private events of all kinds - from corporate meetings and presentations to wedding receptions and anniversary celebrations.
+                </p>
+                <p class="text-gray-700">
+                  The space can accommodate up to 150 guests and features state-of-the-art audiovisual equipment, customizable lighting, and flexible seating arrangements.
+                </p>
+              </div>
+              
+              <div>
+                <h3 class="text-2xl font-semibold mb-3">Catering Services</h3>
+                <p class="text-gray-700 mb-3">
+                  Let us bring the GourmetBliss experience to your location! Our catering services are available for events of all sizes, from intimate gatherings to large corporate functions.
+                </p>
+                <p class="text-gray-700">
+                  Choose from our curated menu packages or work with our chef to create a custom menu tailored to your event's needs and preferences.
+                </p>
+              </div>
+              
+              <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                <a href="#" class="bg-blue-500 text-white text-center py-3 px-8 rounded-lg hover:bg-blue-600 transition duration-300">
+                  Request Event Quote
+                </a>
+                <a href="#" class="bg-white text-blue-500 text-center border border-blue-500 py-3 px-8 rounded-lg hover:bg-blue-50 transition duration-300">
+                  Download Catering Menu
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Types -->
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 stagger-container">
+          <div class="bg-gray-50 p-4 rounded-lg text-center stagger-item">
+            <i class="fas fa-glass-cheers text-blue-500 text-3xl mb-2"></i>
+            <h4 class="font-semibold">Weddings</h4>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-lg text-center stagger-item">
+            <i class="fas fa-briefcase text-blue-500 text-3xl mb-2"></i>
+            <h4 class="font-semibold">Corporate Events</h4>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-lg text-center stagger-item">
+            <i class="fas fa-birthday-cake text-blue-500 text-3xl mb-2"></i>
+            <h4 class="font-semibold">Birthday Parties</h4>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-lg text-center stagger-item">
+            <i class="fas fa-utensils text-blue-500 text-3xl mb-2"></i>
+            <h4 class="font-semibold">Private Dining</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 bg-blue-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 text-center slide-up-element">
+          What Our Customers Say
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-container">
+          <!-- Testimonial 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-md stagger-item">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400 flex">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="ml-2 text-gray-600">5.0</span>
+            </div>
+            <p class="text-gray-600 italic mb-4">
+              "The food here is absolutely amazing! Every dish is prepared with
+              such care and the flavors are outstanding. The service is equally
+              impressive!"
+            </p>
+            <div class="flex items-center">
+              <img
+                src="https://randomuser.me/api/portraits/women/23.jpg"
+                alt="Customer"
+                class="w-12 h-12 rounded-full mr-4"
+                loading="lazy"
+              />
+              <div>
+                <h4 class="font-semibold">Sarah Johnson</h4>
+                <p class="text-sm text-gray-500">Regular Customer</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-md stagger-item">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400 flex">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="ml-2 text-gray-600">5.0</span>
+            </div>
+            <p class="text-gray-600 italic mb-4">
+              "The ambiance is perfect for both casual dinners and special
+              occasions. I've been coming here for years and the quality has
+              always been consistently excellent."
+            </p>
+            <div class="flex items-center">
+              <img
+                src="https://randomuser.me/api/portraits/men/42.jpg"
+                alt="Customer"
+                class="w-12 h-12 rounded-full mr-4"
+                loading="lazy"
+              />
+              <div>
+                <h4 class="font-semibold">Michael Chen</h4>
+                <p class="text-sm text-gray-500">Food Blogger</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 text-center">
+          <a
+            href="#"
+            class="inline-block bg-white text-blue-500 border border-blue-500 py-3 px-8 rounded-lg shadow hover:bg-blue-50 transition duration-300"
+          >
+            Leave Your Review
+          </a>
         </div>
       </div>
     </section>
@@ -431,43 +986,316 @@
     <footer class="bg-gray-900 text-white py-8">
       <div class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <!-- Footer Section 1: Menu Links -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Menu</h3>
-            <ul>
+            <h3 class="text-2xl font-bold mb-4">GourmetBliss</h3>
+            <p class="mb-4">
+              A fine dining experience with the perfect blend of taste, service
+              and ambiance.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-white hover:text-blue-400"
+                aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="text-white hover:text-blue-400"
+                aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="#"
+                class="text-white hover:text-blue-400"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                class="text-white hover:text-blue-400"
+                aria-label="Pinterest"
+                ><i class="fab fa-pinterest"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-blue-400">Home</a></li>
               <li>
-                <a href="#burgers" class="hover:text-gray-300">Burgers</a>
+                <a href="/pages/menu.html" class="hover:text-blue-400">Menu</a>
               </li>
               <li>
-                <a href="#grilled-sandwiches" class="hover:text-gray-300"
-                  >Grilled Sandwiches</a
+                <a href="/pages/about.html" class="hover:text-blue-400"
+                  >About Us</a
                 >
               </li>
-              <li><a href="#drinks" class="hover:text-gray-300">Drinks</a></li>
-              <li><a href="#sides" class="hover:text-gray-300">Sides</a></li>
             </ul>
           </div>
-
-          <!-- Footer Section 2: Address -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Visit Us</h3>
-            <p>123 Restaurant Avenue</p>
-            <p>New City, State 12345</p>
-          </div>
-
-          <!-- Footer Section 3: Restaurant Story and Copyright -->
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Our Story</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              convallis libero et lectus convallis, sed laoreet turpis
-              efficitur. Sed sit amet arcu auctor, vehicula ligula nec,
-              consequat justo.
+            <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+            <p class="mb-4">
+              Subscribe to our newsletter for special deals and updates
             </p>
-            <p class="mt-4">&copy; 2024 Gourmet Bliss. All rights reserved.</p>
+            <form class="flex" role="form" aria-label="Newsletter subscription">
+              <input
+                type="email"
+                placeholder="Your email address"
+                aria-label="Email address for newsletter"
+                class="px-4 py-2 rounded-l-md w-full focus:outline-none text-gray-900"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+          <p>&copy; 2025 GourmetBliss. All rights reserved.</p>
         </div>
       </div>
     </footer>
+
+    <!-- Simple JavaScript for Search Functionality and Cart -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Search form submission
+        const searchForm = document.getElementById("search-form");
+        const mobileSearchForm = document.getElementById("mobile-search-form");
+
+        function handleSearchSubmit(event) {
+          event.preventDefault();
+          const searchInput = event.target.querySelector(
+            'input[type="search"]'
+          );
+          const searchTerm = searchInput.value.toLowerCase();
+
+          if (searchTerm.trim() === "") return;
+
+          // Replace alert with console log
+          console.log(`Searching for: ${searchTerm}`);
+          
+          // Visual feedback instead of alert
+          const searchFeedback = document.createElement('div');
+          searchFeedback.textContent = `Searching for: ${searchTerm}`;
+          searchFeedback.className = 'bg-blue-100 text-blue-800 p-2 rounded mb-4 text-sm';
+          
+          // Add feedback to page temporarily
+          if (searchForm) {
+            searchForm.parentNode.insertBefore(searchFeedback, searchForm);
+            setTimeout(() => searchFeedback.remove(), 3000);
+          }
+        }
+
+        if (searchForm)
+          searchForm.addEventListener("submit", handleSearchSubmit);
+        if (mobileSearchForm)
+          mobileSearchForm.addEventListener("submit", handleSearchSubmit);
+
+        // Cart functionality for Online Ordering
+        const addToCartButtons = document.querySelectorAll(
+          ".bg-blue-500.py-1.px-3.rounded-lg"
+        );
+        let cartCount = 0;
+
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            cartCount++;
+            const cartButton = document.querySelector(".bg-green-600");
+            if (cartButton) {
+              cartButton.innerHTML = `<i class="fas fa-shopping-cart mr-2"></i> View Cart (${cartCount} items)`;
+            }
+
+            // Get product info
+            const productCard = this.closest(".border.rounded-lg");
+            const productName = productCard.querySelector(
+              ".text-lg.font-semibold"
+            ).textContent;
+            const productPrice = productCard.querySelector(
+              ".font-bold.text-green-600"
+            ).textContent;
+
+            // Replace alert with visual feedback
+            const notification = document.createElement('div');
+            notification.innerHTML = `<div class="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-50">
+              Added to cart: ${productName}
+            </div>`;
+            document.body.appendChild(notification);
+            
+            // Remove notification after delay
+            setTimeout(() => {
+              notification.remove();
+            }, 2000);
+          });
+        });
+
+        // Quantity buttons
+        const decreaseButtons = document.querySelectorAll(
+          'button[aria-label="Decrease quantity"]'
+        );
+        const increaseButtons = document.querySelectorAll(
+          'button[aria-label="Increase quantity"]'
+        );
+
+        decreaseButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const quantitySpan = this.nextElementSibling;
+            let quantity = parseInt(quantitySpan.textContent);
+            if (quantity > 1) {
+              quantitySpan.textContent = quantity - 1;
+            }
+          });
+        });
+
+        increaseButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const quantitySpan = this.previousElementSibling;
+            let quantity = parseInt(quantitySpan.textContent);
+            quantitySpan.textContent = quantity + 1;
+          });
+        });
+
+        // Category filter buttons
+        const categoryButtons = document.querySelectorAll(".rounded-full");
+
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            categoryButtons.forEach((btn) => {
+              btn.classList.remove("bg-blue-500", "text-white");
+              btn.classList.add("bg-gray-200", "text-gray-800");
+            });
+
+            // Add active class to clicked button
+            this.classList.remove("bg-gray-200", "text-gray-800");
+            this.classList.add("bg-blue-500", "text-white");
+
+            const category = this.textContent.trim();
+            console.log(`Filtering by: ${category}`);
+            
+            // Visual feedback instead of alert
+            const filterFeedback = document.createElement('div');
+            filterFeedback.className = 'text-sm text-blue-600 italic mt-2';
+            filterFeedback.textContent = `Showing ${category === "All" ? "all items" : category} items`;
+            
+            // Find container to add feedback to
+            const buttonContainer = this.closest('.space-x-2');
+            if (buttonContainer) {
+              buttonContainer.appendChild(filterFeedback);
+              setTimeout(() => filterFeedback.remove(), 2000);
+            }
+          });
+        });
+
+        // Delivery/Takeout toggle
+        const deliveryTakeoutButtons = document.querySelectorAll(
+          ".rounded-lg.py-2.px-4"
+        );
+
+        if (deliveryTakeoutButtons.length >= 2) {
+          deliveryTakeoutButtons[0].addEventListener("click", function () {
+            deliveryTakeoutButtons[0].classList.add(
+              "bg-blue-500",
+              "text-white"
+            );
+            deliveryTakeoutButtons[0].classList.remove(
+              "bg-gray-200",
+              "text-gray-800"
+            );
+
+            deliveryTakeoutButtons[1].classList.add(
+              "bg-gray-200",
+              "text-gray-800"
+            );
+            deliveryTakeoutButtons[1].classList.remove(
+              "bg-blue-500",
+              "text-white"
+            );
+
+            // Replace alert with visual feedback
+            const container = this.closest('.flex');
+            if (container) {
+              const feedbackMsg = document.createElement('span');
+              feedbackMsg.className = 'ml-2 text-xs text-blue-500';
+              feedbackMsg.textContent = 'Delivery mode activated';
+              container.appendChild(feedbackMsg);
+              setTimeout(() => feedbackMsg.remove(), 2000);
+            }
+          });
+
+          deliveryTakeoutButtons[1].addEventListener("click", function () {
+            deliveryTakeoutButtons[1].classList.add(
+              "bg-blue-500",
+              "text-white"
+            );
+            deliveryTakeoutButtons[1].classList.remove(
+              "bg-gray-200",
+              "text-gray-800"
+            );
+
+            deliveryTakeoutButtons[0].classList.add(
+              "bg-gray-200",
+              "text-gray-800"
+            );
+            deliveryTakeoutButtons[0].classList.remove(
+              "bg-blue-500",
+              "text-white"
+            );
+
+            // Replace alert with visual feedback
+            const container = this.closest('.flex');
+            if (container) {
+              const feedbackMsg = document.createElement('span');
+              feedbackMsg.className = 'ml-2 text-xs text-blue-500';
+              feedbackMsg.textContent = 'Takeout mode activated';
+              container.appendChild(feedbackMsg);
+              setTimeout(() => feedbackMsg.remove(), 2000);
+            }
+          });
+        }
+
+        // Reservation form submission
+        const reservationForm = document.getElementById("reservation-form");
+        if (reservationForm) {
+          reservationForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Collect form data
+            const name = document.getElementById("name").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const guests = document.getElementById("guests").value;
+
+            // Replace alert with visual feedback
+            const successMessage = document.createElement('div');
+            successMessage.className = 'mt-4 bg-green-100 text-green-800 p-4 rounded';
+            successMessage.innerHTML = `
+              <p class="font-semibold">Reservation confirmed!</p>
+              <p>Thank you ${name}, your table for ${guests} has been reserved for ${date} at ${time}.</p>
+              <p class="text-sm mt-2">A confirmation email will be sent shortly.</p>
+            `;
+            
+            reservationForm.reset();
+            reservationForm.parentNode.appendChild(successMessage);
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Remove success message after delay
+            setTimeout(() => {
+              successMessage.remove();
+            }, 5000);
+          });
+        }
+      });
+    </script>
+
+    <!-- Animation Scripts -->
+    <script src="/js/animations.js"></script>
   </body>
 </html>
